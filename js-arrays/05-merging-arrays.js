@@ -18,3 +18,9 @@ console.log([...arr1, ...arr2, ...arr3]); // [ 1, 2, 55, 56, 101, 102, 103 ]
 console.log(arr1); // [ 1, 2 ]
 console.log(arr2); // [ 55, 56 ]
 console.log(arr3); // [ 101, 102, 103 ]
+
+
+
+// 
+console.log(arr1.concat(555, 666)); // [ 1, 2, 555, 666 ]
+console.log(`The new arrays is ${arr1.concat(555, 666)}`); // 'The new arrays is 1,2,555,666'
