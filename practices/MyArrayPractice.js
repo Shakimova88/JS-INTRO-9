@@ -174,4 +174,3 @@ let min = Math.min(...nums);
 console.log(max, min)
 const nums1_15 = [ 1, 2, 3, 4, ...nums, 12, 13, 14, 15 ];
 console.log(nums1_15);
-

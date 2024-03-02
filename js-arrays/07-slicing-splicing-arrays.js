@@ -22,3 +22,6 @@ numbers.splice(-1, 3, 100, 101, 102);
 
 console.log(numbers.length)
 console.log(numbers);
+
+const animals1 = [ 'Cat', 'Dog', 'Cow']
+console.log(animals1.splice(0, 2, 3))

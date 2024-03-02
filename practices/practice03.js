@@ -15,17 +15,7 @@ function tripleWord(str){
 }
 
 console.log(tripleWord("Tech"));
-console.log(tripleWord("Global"));
-console.log(tripleWord("Banana"));
-
-// TRICKY PART
-console.log(tripleWord(""));
-console.log(tripleWord(1)); // 111
-console.log(tripleWord(true));
-
-/*
-Write a function named as has4() which takes a string word as an argument and returns true if given string has 
-at least 4 characters, and false otherwise when invoked.
+console.log(tripleWord(" when invoked.
 
 Examples:
 has4("Tech") 	-> true
@@ -36,7 +26,7 @@ has4("abc")	 	-> false
 */
 
 function has4(str){
-    return str.length >= 4;
+    return str.length >= 4; , 
 }
 
 console.log(has4("Tech")); //  true

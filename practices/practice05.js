@@ -12,7 +12,7 @@ Find which quarter and half is number in
 */
 
 
-	let rNum = Math.floor(Math.random() * 100) + 1;
+	let rNum = 75
 
 	if (rNum <= 25) console.log(`${rNum} is in the 1st quarter`);
 	else if (rNum <= 50) console.log(`${rNum} is in the 2nd quarter`);
@@ -20,6 +20,38 @@ Find which quarter and half is number in
 	else console.log(`${rNum} is in the 4th quarter`);
 
 	rNum <=50 ? console.log(`${rNum} is in the 1st half`) : console.log(`${rNum} is in the 2nd half`);
+
+
+	let rNum = Math.floor(Math.random() * 100) + 1;
+function quarterHalf(num) {
+    let quarter;
+    let half;
+if(num <= 25){
+     quarter = 1;
+     half = 1;
+    }
+else  if(num <= 50){
+     quarter = 2;
+     half = 1;
+}
+else  if(num <= 75){
+     quarter = 3;
+     half = 2;
+}
+else if( num <= 100);{
+     quarter = 4;
+     half = 2;
+     }
+
+     return `Number ${num} is in  Quarter ${quarter} and Half ${half}`
+} 
+
+console.log(quarterHalf(50))
+
+
+
+
+
 
 
 
@@ -614,3 +646,5 @@ console.log(has5('ina'))
 
 
 
+let name = ['Zarina', 'Dio', 'Mark', 'John'];
+console.log(name.splice(0, 0,));
