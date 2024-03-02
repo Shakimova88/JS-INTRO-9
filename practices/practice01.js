@@ -125,3 +125,9 @@ console.log(r4);
 console.log("Difference of max and min = " + (r4 - r1));
 console.log("Difference of second and third = " + (r3 - r2));
 console.log((r1 + r2 + r3 + r4) / 4);
+
+
+let str = 'I like apple and oranges';
+
+let extrStr = str.lastIndexOf(' ');
+console.log(extrStr);

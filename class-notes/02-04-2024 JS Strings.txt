@@ -14,7 +14,7 @@ name.length; // 5
 typeof name.length; // number
 
 
-Methods: 
+Methods: gh,o
     -concat() is used to combine strings together.
 
 Extracting characters by their indexes (indices)

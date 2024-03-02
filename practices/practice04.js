@@ -273,3 +273,7 @@ else {
 console.log(CharacterHelper.isVowel('A'));
 console.log(CharacterHelper.isVowel('b'));
 console.log(CharacterHelper.isVowel('I'));
+
+
+
+
