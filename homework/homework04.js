@@ -186,22 +186,22 @@ THEN:
 
 let numArray = [3, 5, 7, 10, 0, 20, 17, 10, 23, 56, 78];
 console.log(numArray);
-let moreThan10 =
+let moreThan10 = 0;
 let lessThan10 = 0;
 let equalTo10 = 0;
 
-// Loop through the array and update counters
-for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] > 10) {
+
+for (let i = 0; i < numArray.length; i++) {
+    if (numArray[i] >= 10) {
         moreThan10++;
-    } else if (numbers[i] < 10) {
+    } else if (numArray[i] <= 10) {
         lessThan10++;
-    } else if (numbers[i] === 10) {
+    } else if (numArray[i] === 10) {
         equalTo10++;
     }
 }
 
-// Output the results
+
 console.log(`Elements that are more than 10 = ${moreThan10}`);
-console.log(`Elements that less than 10 =${lessThan10}`);
+console.log(`Elements that less than 10 = ${lessThan10}`);
 console.log(`Elements that are 10 = ${equalTo10}`); 
