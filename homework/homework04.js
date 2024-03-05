@@ -205,3 +205,20 @@ for (let i = 0; i < numArray.length; i++) {
 console.log(`Elements that are more than 10 = ${moreThan10}`);
 console.log(`Elements that less than 10 = ${lessThan10}`);
 console.log(`Elements that are 10 = ${equalTo10}`); 
+
+// Task - 14
+/*Create 2 arrays that stores numbers below.
+First array-> 		[ 5, 8, 13, 1, 2 ]
+Second array -> 	[ 9, 3, 67, 1, 0 ]
+
+THEN:
+-Output both arrays
+–Then, create a new array that will take the greatest value of same index
+ from first 2 arrays and output the third array as well.
+ */
+
+ const arrNumbers = [ 5, 8, 13, 1, 2 ];
+ const arr2Numbers = [ 9, 3, 67, 1, 0 ];
+ console.log(arrNumbers, arr2Numbers);
+const arr3Numbers = [];
+for()
