@@ -22,14 +22,3 @@ for(const name of names) {
 }
 
 console.log('The total count of names starting with j is = ', countJ1);
-
-
-console.log('\n--------for loop j start--------\n');
-
-let countJ2 = 0;
-
-for(let i = 0; i < names.length; i++) {
-    if(names[i].toUpperCase()[0] === 'J') countJ2++;
-}
-
-console.log('The total count of names starting with j is = ', countJ2);
