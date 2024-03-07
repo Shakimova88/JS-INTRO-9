@@ -68,3 +68,8 @@ for(i of numbers5) {
 }
 console.log(countEbutNN);
 
+
+
+/// //////// ////////
+
+
