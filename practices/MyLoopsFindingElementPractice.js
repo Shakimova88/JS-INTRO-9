@@ -73,3 +73,13 @@ console.log(countEbutNN);
 /// //////// ////////
 
 
+function findLongestWord(arr) {
+    let longest = arr[0];
+    for(let word of arr) {
+        if(word.length > longest.length) {
+            longest = word;
+        }
+    }
+    return longest;
+}
+console.log(findLongestWord(['Hello', 'World', 'Hi', 'Privet']));
