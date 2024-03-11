@@ -151,10 +151,9 @@ THEN:
 
 let arrayNumbers = [10.5, 20.75, 70, 80, 15.75];
 console.log(arrayNumbers);
-for(let i = 0; i < arrayNumbers.length; i++) [
+for(let i = 0; i < arrayNumbers.length; i++) {
     console.log(arrayNumbers[i])
-    
-]
+}
 
 
 /* Task - 12
@@ -303,7 +302,7 @@ NOTE:
 */
 
 function reverseStringWords(str) {
-    let word = '';
+   let word = '';
     let result = '';
     for(let char of str) {
         if(char === ' ') {
