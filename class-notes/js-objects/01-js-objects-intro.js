@@ -68,8 +68,3 @@ console.log(mug); // { price: 10.99, color: 'White' }
 
 console.log(mug.capacity); // undefined
 console.log(mug.brand); // undefined
-
-
-
-
-
