@@ -1,13 +1,20 @@
-const objects = [ 'Mouse', 'Computer', 'Remote' ]; 
+const students = [
+    [
+        ['Ameer', 'Ali', 'Hicran'],
+        ['Emre', 'Abdullah', 'Tania', 'Mustafa'],
+        ['Marta', 'Niko', 'Mykola']
+    ],
+    [
+        ['Jane', 'Alex', 'John'],
+        ['Maria', 'Max', [ 'Ali', 'James' ]]
+    ]
+];
 
-const numbers = [ 10, 15, 20, 25 ];
 
+console.log(students.flat().length); // 5
+console.log(students.flat(3).length); // 17
 
-let stringObjects = objects.toString(); // or object.join()
-let stringNumbers = numbers.join(' --- ');
+const flatArray = students.flat(Infinity);
+console.log(flatArray);
 
-console.log(objects); // [ 'Mouse', 'Computer', 'Remote' ]
-console.log(numbers); // [ 10, 15, 20, 25 ]
-
-console.log(stringObjects); // 'Mouse,Computer,Remote'
-console.log(stringNumbers); // '10 --- 15 --- 20 --- 25'
+console.log(students);
