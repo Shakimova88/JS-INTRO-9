@@ -180,3 +180,4 @@ console.log(`The last character in the name is = ${name[name.length - 1]}`)
 console.log(`The first 3 characters in the name are = ${name.slice(0,3)}`)
 
 console.log(`The last 3 characters in the name are = ${name.slice(name.length - 3)}`)
+console.log(name.slice(-3))

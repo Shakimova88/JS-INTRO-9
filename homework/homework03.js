@@ -111,8 +111,8 @@ doubleOrTripleWord("22")  -> "222222"
 const doubleOrTripleWord = (str) => {
   if(str.length % 2 === 0) return `${str}${str}${str}`
   else return `${str}${str}`
-  /*
-    WAY2: 
+
+/*    WAY2: 
     if(str.length % 2 === 0) return str.padStart(str.length * 3, str)
     else return str.padStart(str.length * 2, str)
 */
