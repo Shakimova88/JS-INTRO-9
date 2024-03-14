@@ -109,3 +109,144 @@ function lastShortest(arr) {
     return shortest ;
 }
 console.log(lastShortest(["white", "yellow", "brown",]))
+
+function reverseString(str) {
+    return str.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+
+}
+console.log(reverseString('Java Script'));
+
+function getEvens(num, num2) {
+    let evenN = [];
+    let min = Math.min(num, num2);
+    let max = Math.max(num, num2);
+    for(let i = min; i <= max; i++) {
+        if(i % 2 === 0) evenN.push(i);
+    }   
+    return evenN;
+
+}
+
+console.log(getEvens(17, 5));
+
+
+
+
+function getMultipleOf5(num, num2) {
+    let divisibleBy5 = [];
+    let min = Math.min(num, num2);
+    let max = Math.max(num, num2);
+    for(let i = min; i <= max; i++) {
+        if(i % 5 === 0) divisibleBy5.push(i);
+    }
+    return divisibleBy5;
+}
+
+console.log(getMultipleOf5(20, 5))
+
+
+function fizzBuzz(start, end) {
+    let result = [];
+    for(let i = start; i <= end; i++ ) {
+        if(i % 15 === 0) {
+            result.push('FizzBuzz');
+        } else if(i % 3 === 0) {
+            result.push('Fizz');
+        } else if(i % 5 === 0) {
+        result.push('Buzz');
+    } else {
+        result.push(i);
+    }
+    }
+return result.join(' | ');
+
+}
+console.log(fizzBuzz(1, 15));
+
+
+function countPos(arr) {
+    let countPos = 0;
+    for(let i = 0; i <= arr.length; i++) {
+        if(arr[i] > 0) {
+            countPos++;
+        }
+    }
+    return countPos;
+}
+console.log(countPos([-45, 0, 0, 34, 5, 67, 5]))
+
+
+function countA(str) {
+
+    let charA = 0;
+    for(let word of str) {
+        if((word.toUpperCase().includes('A'))) {
+             charA++;
+    }
+}
+return charA;
+}
+console.log(countA("QA stands for Quality Assurance") );
+
+
+function countVowels(str) {
+    let countV = 0;
+    let vowels = 'aeiou';
+    for(let char of str) {
+        if(vowels.includes(char.toLowerCase())) {
+            countV++;
+        }
+    }
+    return countV;
+}
+console.log(countVowels("JavaScript is fun") )
+
+
+function countWords(str) {
+    str = str.trim().split(' ');
+    let countW = 0;
+    for(let words of str) {
+        if(words !== ' ') {
+            countW++;
+        }
+    }
+    return countW;
+}
+console.log(countWords("     Javascript is fun       "))
+
+
+function countMultipleWords(arr) {
+    let elemCount = 0;
+    for(let elem of arr) {
+        if(elem.trim().includes(' ')) {
+            elemCount++;
+        }
+    }
+    return elemCount;
+}
+console.log(countMultipleWords([ "foo", "", "    ", "foo bar", "     foo" ]) )
+
+
+function count3OrLess(str) {
+    str = str.split(' ')
+    let count3 = 0;
+    for(let word of str) {
+        if(word.length <= 3) {
+            count3++;
+        }
+    }
+    return count3;
+}
+console.log(count3OrLess('Hi John you are good men'));
+
+
+function isPrime(num) {
+    return num % num && num % 1 ? true : false
+}
+console.log(isPrime(5))
+
+
+function removeExtraSpaces(str) {
+    return str.trim().split(' ').filter(word => word !== '').join(' ');
+}
+console.log(removeExtraSpaces("     JavaScript is          fun"));

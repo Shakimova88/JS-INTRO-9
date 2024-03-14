@@ -10,6 +10,9 @@ countPos([-23, -4, 0, 2, 5, 90, 123])  -> 4
 countPos([0, -1, -2, -3])  -> 0
 */
 
+
+const countPos = (arr) =>  arr.filter(num => num > 0).length
+
 function countPos(arr) {
     let positive = 0;
     for(let i = 0; i < arr.length; i++){
@@ -32,6 +35,9 @@ countA("TechGlobal is a QA bootcamp")  -> 4
 countA("QA stands for Quality Assurance")  -> 5
 countA("Cypress")  -> 0
 */
+
+const countA = (str) => str.split('').filter(letter => letter.toLowerCase() === 'a').length
+
 
 function countA(str) {
     let allCharA = 0;
@@ -118,6 +124,7 @@ countWords("Cypress is an UI automation tool.    ")
 -> 4
 */
 
+const countWords2 = (str) => str.trim().split(' ').length
 
 function countWords(str) {
     str = str.trim().split(' ');
@@ -148,6 +155,8 @@ factorial(4) -> 24
 factorial(0) -> 1
 factorial(1) -> 1
 */
+
+const factorial = (n) => n === 0 || n === 1? 1: n * factorial(n-1)
 
 function factorial(number) {
    let result = 1;
@@ -183,6 +192,9 @@ isPalindrome("A")  -> true
 isPalindrome("")  -> true
 */
 
+const isPalindrome = (str) => str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
+
+
 function  isPalindrome(str) {
 let reverseStr = str.toLowerCase().split('').reverse().join('');
 return str.toLowerCase() === reverseStr;
@@ -210,6 +222,8 @@ countMultipleWords([ "f o o", "b a r", "foo bar", "     foo bar   " ])
 countMultipleWords([ ]) 
 */
 
+const countMultipleWords = (arr) => arr.reduce((count, str) => str.trim().includes(' ')? count + 1 : count, 0)
+
 
 function countMultipleWords(arr) {
     let count = 0;
@@ -235,6 +249,7 @@ count3OrLess("My name is John Doe")  -> 3
 count3OrLess("")  -> 0
 */
 
+const count3OrLess = (str) => str.trim().split(' ').filter(word => word.length > 0 && word.length <= 3).length
 
 function count3OrLess(str) {
     let words = str.split(' ');
@@ -299,6 +314,14 @@ add([10, 3, 6, 3, 2], [6, 8, 3, 0, 0, 7, 5, 10, 34])  -> [16, 11, 9,
 add([-5, 6, -3, 11], [5, -6, 3, -11])  -> [0, 0, 0, 0]
 */
 
+const add = (arr1, arr2) => {
+    if(arr2.length > arr1.length) [arr1, arr2] = [arr2, arr1]
+    return arr1.map((value, i) => value + (arr2[i] || 0))
+}
+
+console.log(add([-5, 6, -3, 11], [5, -6, 3, -11]))
+
+
 function add(arr, arr2) {
     let maxArr = Math.max(arr.length, arr2.length);
     let sumOf2Arr = [];
@@ -326,6 +349,7 @@ removeExtraSpaces("     JavaScript is          fun")  ->
 "JavaScript is fun”
 removeExtraSpaces("")  -> "" 
 */
+const removeExtraSpaces = (str) => str.trim().split(' ').filter(s => s.length > 0).join(' ');
 
 function removeExtraSpaces(str) {
     return str.trim().split(' ').filter(word => word !== '').join(' ')
@@ -350,9 +374,24 @@ findClosestTo10([10, -13, 8, 12, 15, -20])  -> 8
 findClosestTo10([0, -1, -2])  -> 0
 */
 
-function findClosestTo10(arr) {
-    for(let i = 1; i < arr.length; i++)
+const findClosestTo10 = (arr) =>{
+    let closestTo10 = Number.MAX_VALUE
+    let closestDiff = Number.MAX_VALUE
+
+    for(currentNum of arr){
+        if(currentNum === 10) continue;
+
+        let currentDiff = Math.abs(10 - currentNum);
+
+        if(currentDiff < closestDiff || ((currentDiff === closestDiff) && currentNum < closestTo10)){
+            closestTo10 = currentNum;
+            closestDiff = currentDiff;
+        }
+    }
+    return closestTo10;
 }
+
+
 
 // Couldn't figure out :(
 
@@ -382,9 +421,23 @@ isEmailValid("johndoe@@gmail.com")  -> false
 isEmailValid("johndoe@gmail.com")  -> true
 */
 
-function isEmailValid(email) {
-    couldn't do it :(
-}
+const isEmailValid = (email) => {
+	if(email.includes(' ')) return false;
+	if(email.split('@').length !== 2) return false
+ 
+	
+	const beginning = email.split('@')[0]
+	const middle = email.split('@')[1].split('.')[0]
+	const end = email.split('@')[1].split('.')[1]
+ 
+	if(beginning === undefined || middle === undefined || end === undefined) return false
+ 
+   return (beginning.length >= 2 && middle.length >= 2 && end.length >= 2)
+ }
+
+ console.log(isEmailValid("johndoe@@gmail.com"))//false
+ console.log(isEmailValid("johndoe@gmail.com"))//true
+
 
 
 // Task - 15
@@ -408,9 +461,25 @@ isPasswordValid("Chicago123$")  -> true
 isPasswordValid("Test1234#")  -> true
 */
 
-function isPasswordValid(password) {
-    if(password.length < 8 || password.length > 16) {
-        return false;
-    }
-}...hard so solve :(
+const isPasswordValid = (pass) => {
+	if(pass.includes(' ')) return false;
+	if(pass.length < 8 || pass.length > 16) return false
  
+	let hasUppercase = false;
+	let hasLowercase = false;
+	let hasDigit = false;
+	let hasSpecial = false;
+ 
+	for(char of pass){
+	 if(char >= 'A' && char <= "Z") hasUppercase = true;
+	 else if(char >= 'a' && char <= "z") hasLowercase = true;
+	 else if(char >= '0' && char <= "9") hasDigit = true;
+	 else hasSpecial = true;
+	}
+ 
+ return (hasUppercase && hasLowercase && hasDigit && hasSpecial)
+	
+ }
+ 
+ console.log(isPasswordValid("Chicago12345US!#$%"));  // false
+ console.log(isPasswordValid("Abcd1234$"));  // true
