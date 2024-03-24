@@ -1,4 +1,4 @@
-// Primitives are immutable
+v888p877y7// Primitives are immutable
 let fname = 'John';
 
 fname = 'James';
