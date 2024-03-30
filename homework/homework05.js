@@ -95,18 +95,18 @@ countConsonants("")  -> 0
 
 
 function countConsonants(str) {
+    let count = 0;
     let vowels = 'aeiou';
-    let consonatLetters = 0;
-    for(let char of str.toLowerCase()) {
-        let charCode = char.charCodeAt(0);
-        if(charCode >= 97 && charCode <= 122 && !vowels.includes(char)) {
-                 consonatLetters++;
-        }
-  } 
-  return consonatLetters;
-
+    for(let letter of str.toLowerCase()) {
+        if(!(vowels.includes(letter))) count++;
+    }
+    return count;
 }
+
+console.log(countConsonants("Hello"))
+console.log(countConsonants("Hello World"))
 console.log(countConsonants("JavaScript is fun"));
+console.log(countConsonants(""))
 
 
 // Task - 5
@@ -117,9 +117,9 @@ the given string when invoked.
 NOTE: Be careful about the extra whitespaces before 
 and after the string.
 
-Examples:
-countWords("     Javascript is fun       ")  -> 3
-countWords("Cypress is an UI automation tool.    ") 
+
+countWords("     Javascript is fun       "))
+countWords("Cypress is an UI automation tool.    ")) 
 -> 6 countWords("1 2 3 4") 
 -> 4
 */

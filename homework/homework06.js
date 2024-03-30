@@ -1,4 +1,4 @@
-// Task - 1
+z// Task - 1
 /* Requirement:
 Write a function named noSpace() which takes a string as argument and returns a new string with all the spaces removed.
 Examples:

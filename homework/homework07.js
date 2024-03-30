@@ -165,17 +165,22 @@ categorizeCharacters("1234")  -> [ '' , '1234', '' ]
 categorizeCharacters("abc123$#%")  -> [ 'abc', '123', '$#%' ]
 categorizeCharacters("12ab$%3c%")  -> [ 'abc', '123', '$%%' ]
 */
+function categorizeCharacters(string) {
+    let letters = '';
+    let digits = '';
+    let specials = '';
 
-const categorizeCharacters = (str) => {
-    let letters = [];
-    let digits = [];
-    let charact = [];
-    for(let el of str) {
-        if((el >= 'A' && el <= 'Z') || (el >= 'a' && el <= 'z')) letters.push(el);
-        else if(el >= '0' && el <= '9') digits.push(el);
-        else charact.push(el);
+    for (const char of string) {
+        if (char >= 'A' && char <= 'Z' || char >= 'a' && char <= 'z') {
+            letters += char;
+        } else if (char >= '0' && char <= '9') {
+            digits += char;
+        } else {
+            specials += char;
+        }
     }
-    return [letters.join(''), digits.join(''), charact.join('')];
+
+    return [letters, digits, specials];
 }
 console.log(categorizeCharacters("1234"))
 console.log(categorizeCharacters("abc123$#%"))
