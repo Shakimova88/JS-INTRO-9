@@ -139,6 +139,7 @@ How to duplicate a statement to next or previous line
 Mac: Option + Shift + up or down arrow
 Windows: Alt + Shift + up or down arrow
 
+
 ;   -> semi-colon 
 :   -> colon
 .   -> dot, period 
