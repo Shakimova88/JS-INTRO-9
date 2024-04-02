@@ -9,6 +9,8 @@ const firstLastWord = (str) => {
 }
 console.log(firstLastWord('i like JavaScript'));
 console.log(firstLastWord('Hello'))
+console.log(firstLastWord(''))
+console.log(firstLastWord("      "))
 
 
 const hasVowel = (str) => str.split('').some(el => 'aeiou'.includes(el.toLowerCase()));
