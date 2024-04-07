@@ -385,15 +385,8 @@ returns the count of the consonant letters when invoked.
 NOTE: A letter that is not vowel is considered as a consonant letter. 
 */
 
-function countConsonants(str) {
-    let count = 0;
-    let vowels = 'aeiou';
-    for(let letter of str.toLowerCase()) {
-        if(!(vowels.includes(letter))) count++;
-    }
-    return count;
-}
 
+const countConsonants = (str) => str.split('').filter(el => (!'aeiou'.includes(el.toLowerCase()))).length 
 console.log(countConsonants("Hello"))
 console.log(countConsonants("Hello World"))
 console.log(countConsonants("JavaScript is fun"))
@@ -573,13 +566,7 @@ Write a function named removeDuplicates() which takes an array argument and retu
 array with all the duplicates removed.
 */
 
-
-let removeDuplicates = (arr) => {
-    return arr.filter((elem, index) => {
-        return arr.indexOf(elem) === index;
-    } );
-};
-
+const removeDuplicates = (arr) => arr.filter((el, ind) => arr.indexOf(el) === ind);
 console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]))
 console.log(removeDuplicates([1, 2, 5, 2, 3]));
 console.log(removeDuplicates([0, -1, -2, -2, -1]));

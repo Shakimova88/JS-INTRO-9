@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    header {
+        background-color: #333;
+        color: white;
+        padding: 15px;
+        text-align: left;
+
+    }
+
+    header h1 {
+        margin: 0;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+
+    nav ul li a{
+       color: white;
+       text-decoration: none;
+    }
+
+    section {
+        background-color: #f4f4f4;
+        border: 1px solid #addd;
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid rgb(50, 50, 50);
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: rgb(50, 50, 50);
+        color: white;
+    }
+
+    .project {
+        border: 1px solid black;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .aboutme {
+        padding: 20px;
+    }
+
+    .projects {
+        padding: 20px;
+    }
+
+    fieldset{
+        border: 0px;
+        padding: 0px;
+    }
+
+    .form {
+        padding: 20px;
+    }
+
+    .text input{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #textarea {
+        height: 50px;
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        </header>
+        <div class="aboutme">
+            <h2>About Me</h2>
+            <p>This is where you can write a brief description about yourself.</p>
+            <table>
+                <tr>
+                    <th>Skill</th>
+                    <th>Proficiency</th>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>Intermediate</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Beginner</td>
+                </tr>
+            </table>
+        </div>
+        <div class="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project Title 1</h3>
+                <p>Description of Project 1.</p>
+            </div>
+            <div class="project">
+                <h3>Project Title 1</h3>
+                <p>Description of Project 1.</p>
+            </div>
+        </div>
+        <div class="form">
+            <h2>Contact Me</h2>
+            <form>
+            <fieldset>
+                <div class="text">
+                <div>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" />
+                </div>
+                <div>
+                    <label for="Email">Email:</label> <br>
+                    <input type="Email" id="Email" />
+                </div>
+                <div>
+                    <label for="textarea">Message:</label> <br>
+                    <input type="textarea" id="textarea" />
+                </div> 
+            </div>
+                <div>
+                    <p>Do you like my page?</p>
+                    <input type="radio" id="radio" />
+                    <label for="yes">Yes</label><br>
+                    <input type="radio" id="radio" />
+                    <label for="no">No</label><br>
+                <input type="submit" value="Submit">
+                </div>                              
+            </fieldset>
+            </form>
+        </div>
+    
+</body>
+</html>

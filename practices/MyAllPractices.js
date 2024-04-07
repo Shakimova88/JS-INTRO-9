@@ -350,13 +350,8 @@ console.log(sumOfDigits("John’s age is 29"));
 console.log(sumOfDigits("$125.0"));            
 console.log(sumOfDigits(""))
 
-const arrFactorial = arr => {
-  let result = [];
-  for(let num of arr) {
-    let fact = 1;
-    if()
-  }
-}
+
+
 console.log(arrFactorial([1, 2, 3 ,4]))
 console.log(arrFactorial([0, 5]))
 console.log(arrFactorial([5 , 0, 6]))
