@@ -88,12 +88,9 @@ reverseSentence("Javascript is fun")  -> "Fun is javascript"
 reverseSentence("This is a sentence")  -> "Sentence a is this"
 */
 const reverseSentence = (str) => {
-    const el = str.toLowerCase().split(" ");
-    if (el.length < 2) return "There is not enough words!";
-
-    el[el.length - 1] = el[el.length - 1][0].toUpperCase() + el[el.length - 1].slice(1);
-
-    return el.reverse().join(" ");
+if(!str.trim().includes(' ')) return 'There is not enough words!';
+let result = str.split(' ').reverse().join(' ');
+return result.slice(0, 1).toUpperCase() + result.slice(1).toLowerCase();
 };
 
 console.log(reverseSentence("Hello"))
@@ -111,12 +108,7 @@ fun"
 removeStringSpecialsDigits("Cypress")  -> "Cypress"
 removeStringSpecialsDigits("Automation123#$%")  -> "Automation"
 */
-const removeStringSpecialsDigits = (str) => {
-    return str.split('').filter((el) => {
-        const code = el.charCodeAt(0);
-        return (code >= 65 && code <= 90) || (code >= 97 && code <= 122) || el === ' ';
-    }).join('');
-};
+const removeStringSpecialsDigits = (str) => str.split('').filter(char => (char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z') || char === ' ').join('')
 console.log(removeStringSpecialsDigits("123Javascript #$%is fun"))  
 console.log(removeStringSpecialsDigits("Cypress")) 
 console.log(removeStringSpecialsDigits("Automation123#$%")) 
@@ -134,15 +126,7 @@ removeArraySpecialsDigits(["Automation", "123#$%tool"])  -> ["Automation",
 "tool"]
 */
 
-const removeArraySpecialsDigits = (arr) => {
-    return arr.map(str => {
-        return str.split('').filter((el) => {
-            const code = el.charCodeAt(0);
-            return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
-        }).join('');
-    });
-};
-
+const removeArraySpecialsDigits = (arr) => arr.map(str => str.split('').filter(char => char.toLowerCase() >= 'a' && char.toLowerCase() <= 'z').join(''));
 console.log(removeArraySpecialsDigits(["123Javascript", "#$%is", "fun"]))  
 console.log(removeArraySpecialsDigits(["Cypress", "123$%", "###"]))
 console.log(removeArraySpecialsDigits(["Automation", "123#$%tool"]))
@@ -178,6 +162,7 @@ noXInVariables(["x", 123, "#$%"])  -> [123, "#$%"]
 noXInVariables(["xyXyxy", "Xx", "ABC"])  -> ["yyy", "ABC"]
 */
 
+// first way 
 const noXInVariables = (arr) =>
     arr.map(el =>
         typeof el === 'string'
@@ -185,8 +170,16 @@ const noXInVariables = (arr) =>
             : el
     ).filter(el => typeof el === 'string' ? el.length > 0 : true);
 
+// second way
+    const noXInVariables1 = (arr) => {
+        arr = arr.map(el => {
+            if(typeof el === 'string') return el.split('').filter(x => x.toLowerCase() !== 'x').join('')
+            else return el
+        })
+        return arr.filter(x => x);
+    }
 
-console.log(noXInVariables(["abc", 123, "#$%"]))
-console.log(noXInVariables(["xyz", 123, "#$%"]))
-console.log(noXInVariables(["x", 123, "#$%"]))
-console.log(noXInVariables(["xyXyxy", "Xx", "ABC"]))
+console.log(noXInVariables1(["abc", 123, "#$%"]))
+console.log(noXInVariables1(["xyz", 123, "#$%"]))
+console.log(noXInVariables1(["x", 123, "#$%"]))
+console.log(noXInVariables1(["xyXyxy", "Xx", "ABC"]))

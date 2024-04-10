@@ -579,7 +579,9 @@ Write a function named noDigit() which takes a string argument and returns a new
 all digits removed from the original string. 
 */
 
-const noDigit = (str) => str.split('').reduce((acc, el) => el < '0' || el > '9' ? acc += el : acc, '');
+//const noDigit = (str) => str.split('').reduce((acc, el) => el < '0' || el > '9' ? acc += el : acc, '');
+
+const noDigit = (str) => str.split('').filter(el => el < '0' || el > '9').join('')
 
 console.log(noDigit(""))
 console.log(noDigit("Javascript"))
@@ -617,6 +619,16 @@ console.log(sumOfDigits(""))
 /* Array Factorial 
 Write a function named arrFactorial() which takes an array of numbers as argument and return 
 the array with every number replaced with their factorials. 
+*/
+
+
+/*const arrFactorial = (arr) => arr.map(num => {
+    let fact = 1;
+    for (let i = 2; i <= num; i++) {
+        fact *= i;
+    }
+    return fact;
+});
 */
 
 const factorial = n => n <= 1 ? 1 : n * factorial(n - 1);
