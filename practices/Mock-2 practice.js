@@ -22,6 +22,7 @@ NOTE: Return empty string if the given string does not have any word.
 
 const firstLastWord = (str) => {
     str = str.trim().split(' ');
+    if(str.length < 0) return '';
     return str[0] + str[str.length - 1]
 }
 
@@ -39,9 +40,8 @@ NOTE: Vowels are = a, e, o, u, i.
 NOTE: Ignore upper/lower cases. 
 */
 
-const hasVowel = (str) => {
-    return str.toLowerCase().split('').some(el => 'aeoui'.includes(el)); 
-}
+const hasVowel = (str) => str.split('').some(el => 'aeouiAEIOU'.includes(el)); 
+
 console.log(hasVowel(""))
 console.log(hasVowel("Javascript"))
 console.log(hasVowel("Tech Global"))
@@ -90,7 +90,7 @@ NOTE: Ignore extra spaces before and after the string.
 
 const replaceFirstLast = (str) => {
     str = str.trim();
-if(str.trim().length < 2) return '';
+if(str.length < 2) return '';
 return str.at(-1) + str.slice(1, -1) + str.at(0);
 }
 console.log(replaceFirstLast('  Tech Global '));
@@ -107,7 +107,7 @@ NOTE: Return empty string if the given string does not have 8 or more characters
 
 const swap4 = (str) => {
     str = str.trim();
-    if(str.trim().length < 8) return '';
+    if(str.length < 8) return '';
     return str.slice(-4) + str.slice(4, -4) + str.slice(0, 4);
 }
 
