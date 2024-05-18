@@ -360,3 +360,21 @@ console.log(arrFactorial([1, 2, 3 ,4]))
 console.log(arrFactorial([0, 5]))
 console.log(arrFactorial([5 , 0, 6]))
 console.log(arrFactorial([]))
+
+
+const fizzBuzz2 = (num, num2) => {
+    let min = Math.min(num, num2);
+    let max = Math.max(num, num2);
+    let result = [];
+    for(let i = min; i <= max; i++) {
+      if(i % 15 === 0) result.push('FizzBuzz');
+      else if(i % 3 === 0) result.push('Fizz');
+      else if(i % 5 === 0) result.push('Buzz');
+      else result.push(i);
+      }
+    return result.join(' | ');
+    
+  }
+  console.log(fizzBuzz2(13, 18))  	
+//fizzBuzz(12, 5)  	-> "Buzz | Fizz | 7 | 8 | Fizz | Buzz | 11 | Fizz"
+
