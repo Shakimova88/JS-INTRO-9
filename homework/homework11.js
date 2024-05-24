@@ -51,6 +51,9 @@ nthChars("0123456789", 2)  -> "13579"
 */
 
 const nthChars = (str, n) => {
+
+    if(n <= 0 || n > str.length) return '';
+
     let result = '';
     for(let i = n - 1; i < str.length; i += n) {
         result += str[i];
@@ -79,6 +82,7 @@ canFormString("12", "123")  -> false
 */
 
 const canFormString = (str1, str2) => {
+
   let arr1 = str1.toLowerCase().split('');
   let arr2 = str2.toLowerCase().split('').filter(x => x != ' ');
 
@@ -87,6 +91,19 @@ const canFormString = (str1, str2) => {
      else return false
   }
   return true;
+
+    const norm = (str) => str.toLowerCase().split('').filter(char => char !== ' ').sort();
+
+    const [n1, n2] = [norm(str1), norm(str2)];
+
+    let j = 0;
+    for (let i = 0; i < n1.length && j < n2.length; i++) {
+        if (n1[i] === n2[j]) {
+            j++;
+        }
+    }
+    return j === n2.length;
+
 };
 
 console.log(canFormString("Hello", "Hi"))
@@ -112,11 +129,18 @@ isAnagram("CINEMA", "iceman")   -> true
 isAnagram("123", "1234")  -> false
 */
 
+
 const isAnagram = (str1, str2) => {
    if(str1 === str2) return false;
    let modifStr1 = str1.toLowerCase().replace(' ', '').split('').sort().join();
    let modifStr2 = str2.toLowerCase().replace(' ', '').split('').sort().join();
    return modifStr1 === modifStr2;
+
+const isAnagram = (str, str2) => {
+    const sortedChars = (str) => str.toLowerCase().split('').filter(char => char !== ' ').sort().join('');
+
+    return sortedChars(str) === sortedChars(str2);
+
 };
 
 console.log(isAnagram("Apple", "Peach"))
@@ -124,7 +148,9 @@ console.log(isAnagram("listen", "silent"));
 console.log(isAnagram("astronomer", "moon starer")) 
 console.log(isAnagram("CINEMA", "iceman")) 
 console.log(isAnagram("123", "1234"))
+
 console.log(isAnagram("abc", "abc"))
+
 
 
 // Task - 6
@@ -140,11 +166,15 @@ count([0, -1, 15, 1], false)  -> 3
 count([1, 2, 3, 4, -4], true)  -> 3
 */
 
+
 const count = (arr, isEven) => {
     let odd = arr.filter(x => x % 2 !== 0).length
     let even = arr.filter(x => x % 2 === 0).length
     return isEven ? even : odd
 }
+
+const count = (arr, isEven) => arr.reduce((acc, num) => (isEven ? num % 2 === 0 : num % 2 !== 0) ?  acc + 1 : acc, 0 )
+
 console.log(count([1, 5, 10], true))
 console.log(count([3, 7, 2, 5, 10], false))
 console.log(count([-1, 1, -2, 2], true))
@@ -168,6 +198,9 @@ const sumDigitsDouble = str => {
     let result = str.split('').filter(i => i >= '0' && i <= '9').reduce((sum, i) => sum + Number(i),0) * 2
     return result > 0 ? result: -1
 }
+
+=======
+const sumDigitsDouble = str => str.split('').reduce((sum, char) => char >= '0' && char <= '9' ? sum + Number(char) * 2 : sum, -1) === -1 ? -1 : str.split('').reduce((sum, char) => char >= '0' && char <= '9' ? sum + Number(char) * 2 : sum, 0);
 
 
 
@@ -196,6 +229,10 @@ const countOccurrence = (str1, str2) => {
     }
     return arrOfOccur.sort()[0]
 }
+const countOccurrence = (str1, str2) => [...str2].reduce((min, char) => Math.min(min, [...str1.toLowerCase()].filter(c => c === char.toLowerCase()).length / [...str2.toLowerCase()].filter(c => c === char.toLowerCase()).length), Infinity) | 0;
+
+
+
 console.log(countOccurrence("Javascript", "Java"))
 console.log(countOccurrence("Hello", "World"))
 console.log(countOccurrence("Can I can a can", "anc"))
