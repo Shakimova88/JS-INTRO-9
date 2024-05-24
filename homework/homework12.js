@@ -74,15 +74,11 @@ myPow(5, 3)    -> 125
 */
 
 const myPow = (x, n) => {
-    if (n === 0) return 1;
     let result = 1;
-    let absN = Math.abs(n);
-
-    for (let i = 0; i < absN; i++) {
+ for (let i = 1; i <= n; i++) {
         result *= x;
     }
-
-    return n > 0 ? result : 1 / result;
+   return result;
 };
 
   console.log(myPow(3, 3)); 
@@ -109,19 +105,7 @@ findLongestWord("")  -> ""
 findLongestWord("      ") -> ''
 */
 
-function findLongestWord(str) {
-    const words = str.trim().split(' ').filter(word => word !== '');
-    let longestWord = "";
-    let maxLength = 0;
-    for (const word of words) {
-        if (word.length > maxLength) {
-            longestWord = word;
-            maxLength = word.length;
-        }
-    }
-
-    return longestWord;
-}
+const findLongestWord = (str) => str.split(' ').reduce((longest, i) => i.length > longest.length ? i : longest , '');
 console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); 
 console.log(findLongestWord("This is a sample string for testing")); 
 console.log(findLongestWord("One two ten")); 
