@@ -14,39 +14,18 @@ factorial(0) -> 1
 factorial(1) -> 1
 */
 
-function factorial (n) { // 2
-    if(n === 0 || n === 1) return 1;
-    return n * factorial(n-1); // 
-}
-
-function factorial(n) {
-    let result = 1;
-    for (let i = 2; i <= n; i++) {
-        result *= i;
-    }
-    return result;
-}
-
-console.log(factorial(5))
-console.log(factorial(4))
-console.log(factorial(0))
-console.log(factorial(1))
-
-
-
-
-const factorial = (n) => n === 0 || n === 1? 1: n * factorial(n-1)
-
-function factorial(number) {
-   let result = 1;
-   for(let i = 2; i <= number; i++) {
-        result *= i;
-   }
-   return result;
-
-}
+// function factorial(n) {
+//     let result = 1;
+//     for (let i = 2; i <= n; i++) {
+//         result *= i;
+//     }
+//     return result;
+// }
+const factorial = (n) => (n === 0 || n === 1 ? 1 : n * factorial(n - 1));
+console.log(factorial(5));
+console.log(factorial(4));
 console.log(factorial(0));
-
+console.log(factorial(1));
 
 /* Requirement: 
 Write a function named as removeExtraSpaces() which takes 
@@ -61,13 +40,15 @@ removeExtraSpaces("     JavaScript is          fun")  ->
 removeExtraSpaces("")  -> "" 
 */
 
-const removeExtraSpaces = (str) => str.trim().split(' ').filter(s => s.length > 0).join(' ');
+const removeExtraSpaces = (str) =>
+  str
+    .split(" ")
+    .filter((s) => s.length > 0)
+    .join(" ");
 console.log(removeExtraSpaces("Hello"));
 console.log(removeExtraSpaces("      Hello    World     "));
 console.log(removeExtraSpaces("     JavaScript is          fun"));
 console.log(removeExtraSpaces(""));
-
-
 
 /*First Duplicate Element 
 Write a function named as firstDuplicate() which takes an array argument and returns the first 
@@ -83,22 +64,21 @@ firstDuplicate([ 5, '5', 3, 7, 4 ])      -> -1
 firstDuplicate([ 123, 'abc', '123', 3, 'abc' ])    -> 'abc' 
 firstDuplicate([ 1, 2, 3])        -> -1 
 firstDuplicate([ 'foo', 'abc', '123', 'bar’ ])     -> -1 
-*/ 
+*/
 function firstDuplicate(arr) {
-    for(let i = 0; i < arr.length; i++) {
-        if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
-        return arr[i];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
+      return arr[i];
     }
+  }
+  return -1;
 }
-return -1;
-}
-console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ]) )
-console.log(firstDuplicate([ 5, 7, 7, 0, 5, 10 ]))
-console.log(firstDuplicate([ 5, '5', 3, 7, 4 ]) )
-console.log(firstDuplicate([ 123, 'abc', '123', 3, 'abc' ]) )
-console.log(firstDuplicate([ 1, 2, 3]))
-console.log(firstDuplicate([ 'foo', 'abc', '123', 'bar' ]))
-
+console.log(firstDuplicate([3, 7, 10, 0, 3, 10]));
+console.log(firstDuplicate([5, 7, 7, 0, 5, 10]));
+console.log(firstDuplicate([5, "5", 3, 7, 4]));
+console.log(firstDuplicate([123, "abc", "123", 3, "abc"]));
+console.log(firstDuplicate([1, 2, 3]));
+console.log(firstDuplicate(["foo", "abc", "123", "bar"]));
 
 /*
 Find All Duplicate Elements 
@@ -116,20 +96,22 @@ getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ])       -> [ ]
 */
 
 function getDuplicate(arr) {
-    let allDuplicate = [];
-    for(let i = 0; i < arr.length; i++) {
-        if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i]) && !allDuplicate.includes(arr[i]) ) {
-            allDuplicate.push(arr[i]);
-        }
+  let allDuplicate = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (
+      arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i]) &&
+      !allDuplicate.includes(arr[i])
+    ) {
+      allDuplicate.push(arr[i]);
     }
-    return allDuplicate;
- }
+  }
+  return allDuplicate;
+}
 
- console.log(getDuplicate([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ]))
- console.log(getDuplicate([ 1, 2, 5, 0, 7 ]))
- console.log(getDuplicate(['A', 'foo', '12' , 12, 'bar', 'a', 'a', 'foo']))
- console.log(getDuplicate([ 'foo', '12' , 12, 'bar', 'a' ]))
-
+console.log(getDuplicate([0, -4, -7, 0, 5, 10, 45, -7, 0]));
+console.log(getDuplicate([1, 2, 5, 0, 7]));
+console.log(getDuplicate(["A", "foo", "12", 12, "bar", "a", "a", "foo"]));
+console.log(getDuplicate(["foo", "12", 12, "bar", "a"]));
 
 /* 
 Write a function named as reverseStringWords() which takes a string as an argument
@@ -147,16 +129,18 @@ reverseStringWords(" ")         -> ''
 */
 
 const reverseString = (str) => {
-    return str.trim().split(' ').map(word => word.split('').reverse().join('')).join(' ');
-    }
+  return str
+    .trim()
+    .split(" ")
+    .map((word) => word.split("").reverse().join(""))
+    .join(" ");
+};
 
-console.log(reverseString('Hello Word')); 
-console.log(reverseString('I like JavaScript')); 
-console.log(reverseString('Hello')); 
-console.log(reverseString('')); 
-console.log(reverseString(' ')); 
-
-
+console.log(reverseString("Hello Word"));
+console.log(reverseString("I like JavaScript"));
+console.log(reverseString("Hello"));
+console.log(reverseString(""));
+console.log(reverseString(" "));
 
 /* Requirement:
 Write a function named add() which takes two array of 
@@ -173,24 +157,12 @@ add([-5, 6, -3, 11], [5, -6, 3, -11])  -> [0, 0, 0, 0]
 */
 
 const add = (arr1, arr2) => {
-    if(arr2.length > arr1.length) [arr1, arr2] = [arr2, arr1]
-    return arr1.map((value, i) => value + (arr2[i] || 0))
-}
+  if (arr2.length > arr1.length) [arr1, arr2] = [arr2, arr1];
+  return arr1.map((value, i) => value + (arr2[i] || 0));
+};
 console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2]));
-console.log(add([10, 3, 6, 3, 2], [6, 8, 3, 0, 0, 7, 5, 10, 34]))
-console.log(add([-5, 6, -3, 11], [5, -6, 3, -11]) )
-
-
-// function add(arr, arr2) {
-//     let maxArr = Math.max(arr.length, arr2.length);
-//     let sumOf2Arr = [];
-//     for(let i = 0; i < maxArr; i++){
-//     let totalSum = (arr[i] || 0) + (arr2[i] || 0);
-//     sumOf2Arr.push(totalSum);
-
-//     }
-//     return sumOf2Arr;
-// }
+console.log(add([10, 3, 6, 3, 2], [6, 8, 3, 0, 0, 7, 5, 10, 34]));
+console.log(add([-5, 6, -3, 11], [5, -6, 3, -11]));
 
 /* 
 Fizz Buzz 
@@ -207,23 +179,22 @@ fizzBuzz(15)  -> [ 1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'F
 fizzBuzz(2)  -> [ 1, 2 ] 
 */
 
-const fizzBuzz = n => {
-    const result = [];
-    for (let i = 1; i <= n; i++) {
-        if (i % 15 === 0) result.push('FizzBuzz');
-        else if (i % 3 === 0) result.push('Fizz');
-        else if (i % 5 === 0) result.push('Buzz');
-        else result.push(i);
-    }
-    return result;
+const fizzBuzz = (n) => {
+  const result = [];
+  for (let i = 1; i <= n; i++) {
+    if (i % 15 === 0) result.push("FizzBuzz");
+    else if (i % 3 === 0) result.push("Fizz");
+    else if (i % 5 === 0) result.push("Buzz");
+    else result.push(i);
+  }
+  return result;
 };
 
-console.log(fizzBuzz(3))
-console.log(fizzBuzz(5))
-console.log(fizzBuzz(10))
-console.log(fizzBuzz(15))
-console.log(fizzBuzz(2))
-
+console.log(fizzBuzz(3));
+console.log(fizzBuzz(5));
+console.log(fizzBuzz(10));
+console.log(fizzBuzz(15));
+console.log(fizzBuzz(2));
 
 /* Requirement:
 Write a function named as isPalindrome() which takes a 
@@ -244,20 +215,12 @@ isPalindrome("A")  -> true
 isPalindrome("")  -> true
 */
 
-const isPalindrome = (str) => str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
-
-
-function  isPalindrome(str) {
-let reverseStr = str.toLowerCase().split('').reverse().join('');
-return str.toLowerCase() === reverseStr;
-}
+const isPalindrome = (str) =>
+  str.toLowerCase() === str.toLowerCase().split("").reverse().join("");
 console.log(isPalindrome("123454321"));
 console.log(isPalindrome("Kayak"));
-console.log(isPalindrome("ab  a")) ;  
-
-
-removeDuplicates(arr) 
-
+console.log(isPalindrome("ab  a"));
+console.log(isPalindrome(""));
 
 /*Write a function named removeDuplicates() which takes an array argument 
 and returns a new array with all the duplicates removed.
@@ -271,17 +234,12 @@ removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"])  -> ["abc", "xyz",
 removeDuplicates(["1", "2", "3", "2", "3"])  -> ["1", "2", "3"]
 */
 
-let removeDuplicates = (arr) => {
-    return arr.filter((elem, index) => {
-        return arr.indexOf(elem) === index;
-    } );
-};
-console.log(removeDuplicates([0, -1, -2, -2, -1]));
+//const removeDuplicates = arr => Array.from(new Set(arr))
+const removeDuplicates = (arr) => [...[...new Set(arr)]];
+console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]));
 console.log(removeDuplicates([0, -1, -2, -2, -1]));
 console.log(removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"]));
 console.log(removeDuplicates(["1", "2", "3", "2", "3"]));
-
-
 
 /* Requirement:
 Write a function named as isPrime() which takes a 
@@ -303,45 +261,19 @@ isPrime(0) -> false
 isPrime(1) -> false
 */
 
-
-const isPrime = (num) => {
-    if(num < 2 || (num % 2 === 0 && num !== 2)) return false;
-    for(let i = 3; i <= Math.sqrt(num); i++) {
-        if(num % i === 0) return false;
-    }
-    return true;
-        
-    }
-
-
-//1st way
-function isPrime(num) {
-    if (num <= 1) return false;
-    if (num % 2 === 0) return num === 2;
-    for (let i = 3; i * i <= num; i += 2) {
-        if (num % i === 0) return false;
-    }
-    return true;
-}
-
-
-///2nd way
-function  isPrime(number) {
-    if(number < 2) {
-        return false;
-    }
-
-    for(let i = 2; i < number; i++) {
-        if(number % i === 0) {
-            return false;
-    }
+function isPrime(number) {
+  if (number < 2) return false;
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) return false;
   }
   return true;
 }
-  console.log(isPrime(29));
-
-
-  arrFactorial(arr) 
+console.log(isPrime(5));
+console.log(isPrime(2));
+console.log(isPrime(29));
+console.log(isPrime(-5));
+console.log(isPrime(0));
+console.log(isPrime(1));
 
 /*Requirement:
 Write a function named arrFactorial() which takes an array of numbers as 
@@ -353,32 +285,21 @@ arrFactorial([5 , 0, 6])  -> [120, 1, 720]
 arrFactorial([])  -> []
 */
 
+// const arrFactorial = (arr) => arr.map(num => {
+//     let fact = 1;
+//     for (let i = 2; i <= num; i++) {
+//         fact *= i;
+//     }
+//     return fact;
+// });
 
-const arrFactorial = (arr) => arr.map(num => {
-    let fact = 1;
-    for (let i = 2; i <= num; i++) {
-        fact *= i;
-    }
-    return fact;
-});
+const arrFactorial = (arr) =>
+  arr.map((n) => (n === 0 ? 1 : n * arrFactorial([n - 1])[0]));
 
-const arrFactorial = (arr) => {
-    result = [];
-    for(let num of arr) {
-        let fact = 1;
-        for(let i = 2; i <= num; i++) {
-            fact *= i
-        }
-        result.push(fact);
-    }
-    return result;
-}
-console.log(arrFactorial([1, 2, 3 ,4]))
-console.log(arrFactorial([0, 5]))
-console.log(arrFactorial([5 , 0, 6]))
-console.log(arrFactorial([]))
-
-
+console.log(arrFactorial([1, 2, 3, 4]));
+console.log(arrFactorial([0, 5]));
+console.log(arrFactorial([5, 0, 6]));
+console.log(arrFactorial([]));
 
 /*
 Write a function named findBiggestNumber() which takes a string argument and returns the biggest number appears in the string.
@@ -388,56 +309,45 @@ findBiggestNumber("a1b4c  6#")        -> 6
 findBiggestNumber("ab110c045d")        -> 110
 findBiggestNumber("525")        -> 525
 findBiggestNumber("3 for 10 dollars")    -> 10
+	1.	split(/[^0-9]/): This splits the string by  non-digit characters.
+	2.	filter(Boolean): This removes any empty strings from the array resulting from the split.
+	3.	map(Number): This converts each string in the array to a number.
+	4.	Math.max(0, …): This finds the maximum number in the array, with 0 as a default in case there are no numbers.
+
 */
 
-function findBiggestNumber(str) {
-    let maxNumber = 0;
-    let currentNumber = '';
-    for (let char of str) {
-        if (char >= '0' && char <= '9') {
-            currentNumber += char;
-        } else {
-            maxNumber = Math.max(maxNumber, Number(currentNumber || '0'));
-            currentNumber = '';
-        }
-    }
-    maxNumber = Math.max(maxNumber, Number(currentNumber || '0'));
-    return maxNumber;
-}
+const findBiggestNumber = (str) =>
+  Math.max(
+    0,
+    ...str
+      .split(/[^0-9]+/)
+      .filter(Boolean)
+      .map(Number)
+  );
 
-const findBiggestNumber = str => str.split('').filter(c => !isNaN(c)).sort().pop() || 0;
-
-console.log(findBiggestNumber("abc$"));           // 0
-console.log(findBiggestNumber("a1b4c 6#"));       // 6
-console.log(findBiggestNumber("ab110c045d"));     // 110
-console.log(findBiggestNumber("525"));            // 525
-console.log(findBiggestNumber("3 for 10 dollars"));// 10
+console.log(findBiggestNumber("abc$")); // 0
+console.log(findBiggestNumber("a1b4c 6#")); // 6
+console.log(findBiggestNumber("ab110c045d")); // 110
+console.log(findBiggestNumber("525")); // 525
+console.log(findBiggestNumber("3 for 10 dollars")); // 10
 
 /*
 Requirement:
 Write a function named findSumNumbers() which takes a string argument and returns sum of the all numbers appears in the string
 */
 
-function findSumNumbers(str) {
-    let sum = 0, currentNumber = 0;
-
-    for (let char of str) {
-        if (char >= '0' && char <= '9') {
-            currentNumber = currentNumber * 10 + parseInt(char);
-        } else {
-            sum += currentNumber;
-            currentNumber = 0;
-        }
-    }
-
-    return sum + currentNumber;
-}
+const findSumNumbers = (str) =>
+  str
+    .split(/[^0-9]+/)
+    .filter(Boolean)
+    .map(Number)
+    .reduce((acc, num) => acc + num, 0);
 
 console.log(findSumNumbers("abc$"));
-console.log(findSumNumbers("a1b4c 6#")); 
-console.log(findSumNumbers("ab110c045d")); 
-console.log(findSumNumbers("525")); 
-console.log(findSumNumbers("3 for 10 dollars")); 
+console.log(findSumNumbers("a1b4c 6#"));
+console.log(findSumNumbers("ab110c045d"));
+console.log(findSumNumbers("525"));
+console.log(findSumNumbers("3 for 10 dollars"));
 
 /*
 Requirement:
@@ -446,29 +356,27 @@ NOTE: Numbers that are power of 3 = 1, 3, 9, 27, 81, 243….
 NOTE: Ignore negative scenarios.
 */
 const isPowerOf3 = (num) => {
-    if (num < 1) return false; // Ignore negative numbers and zero
-
-    while (num % 3 === 0) {
-        num /= 3;
-    }
-
-    return num === 1;
+  if (num < 1) return false; // Ignore negative numbers and zero
+  while (num % 3 === 0) num /= 3;
+  return num === 1;
 };
 
 function isPowerOf3(number) {
-    return number === 1 ? true : (number < 1 || number % 3 !== 0) ? false : isPowerOf3(number / 3);
+  return number === 1
+    ? true
+    : number < 1 || number % 3 !== 0
+    ? false
+    : isPowerOf3(number / 3);
 }
 
-
-console.log(isPowerOf3(1));   // true
-console.log(isPowerOf3(3));   // true
-console.log(isPowerOf3(9));   // true
-console.log(isPowerOf3(27));  // true
-console.log(isPowerOf3(81));  // true
+console.log(isPowerOf3(1)); // true
+console.log(isPowerOf3(3)); // true
+console.log(isPowerOf3(9)); // true
+console.log(isPowerOf3(27)); // true
+console.log(isPowerOf3(81)); // true
 console.log(isPowerOf3(243)); // true
-console.log(isPowerOf3(10));  // false
-console.log(isPowerOf3(0));   // false
-
+console.log(isPowerOf3(10)); // false
+console.log(isPowerOf3(0)); // false
 
 /*
 
@@ -486,19 +394,18 @@ fibonacciSeries1(2)    -> [0, 1]
  */
 
 function fibonacciSeries1(n) {
-    const series = [0, 1];
-    for (let i = 2; i < n; i++) {
-        series.push(series[i - 1] + series[i - 2]);
-    }
-    return series.slice(0, n);
+  const series = [0, 1];
+  for (let i = 2; i < n; i++) {
+    series.push(series[i - 1] + series[i - 2]);
+  }
+  return series.slice(0, n);
 }
 console.log(fibonacciSeries1(3)); // [0, 1, 1]
 console.log(fibonacciSeries1(5)); // [0, 1, 1, 2, 3]
 console.log(fibonacciSeries1(7)); // [0, 1, 1, 2, 3, 5, 8]
 console.log(fibonacciSeries1(8)); // [0, 1, 1, 2, 3, 5, 8, 13]
 console.log(fibonacciSeries1(1)); // [0]
-console.log(fibonacciSeries1(2));  // [0, 1]
-
+console.log(fibonacciSeries1(2)); // [0, 1]
 
 /*
 Write a function named fibonacciSeries2() which takes a number n argument and returns the 
@@ -513,20 +420,19 @@ fibonacciSeries2(9)    -> 21
 fibonacciSeries2(1)    -> 0 
 */
 
-const fibonacciSeries2 = n => n === 1 ? 0 : n === 2 ? 1 : fibonacciSeries2(n - 1) + fibonacciSeries2(n - 2);
-console.log(fibonacciSeries2(2)) // 1
-console.log(fibonacciSeries2(4)) // 2
-console.log(fibonacciSeries2(8)) // 13
-console.log(fibonacciSeries2(9)) // 21
-console.log(fibonacciSeries2(1)) // 0
-
+const fibonacciSeries2 = (n) =>
+  n === 1 ? 0 : n === 2 ? 1 : fibonacciSeries2(n - 1) + fibonacciSeries2(n - 2);
+console.log(fibonacciSeries2(2)); // 1
+console.log(fibonacciSeries2(4)); // 2
+console.log(fibonacciSeries2(8)); // 13
+console.log(fibonacciSeries2(9)); // 21
+console.log(fibonacciSeries2(1)); // 0
 
 // function fibonacciSeries2(n) {
 //     if (n === 1) return 0;
 //     if (n === 2) return 1;
 //     return fibonacciSeries2(n - 1) + fibonacciSeries2(n - 2);
 // }
-
 
 /*
 Requirement:
@@ -535,26 +441,13 @@ NOTE: If both arrays are empty, then return an empty array.
 NOTE: If one of the array is empty, then return unique values from the other array.
 */
 
-function findUniques(arr1, arr2) {
-    const combinedArray = arr1.concat(arr2);
-    const uniqueArray = combinedArray.filter((value, index, array) => array.indexOf(value) === index);
-
-    return uniqueArray;
-}
-
-
+const findUniques = (arr, arr2) =>
+  arr.concat(arr2).filter((value, i, arr) => arr.indexOf(value) === i);
+//const findUniques = (arr1, arr2) => [...new Set([...arr1, ...arr2])];
 console.log(findUniques([1, 2, 3], [3, 4, 5])); // [1, 2, 3, 4, 5]
-console.log(findUniques([], [3, 4, 5]));       // [3, 4, 5]
-console.log(findUniques([1, 2, 3], []));       // [1, 2, 3]
-console.log(findUniques([], []));              // []
-
-
-const findUniques = (arr1, arr2) => [...new Set([...arr1, ...arr2])];
-
-console.log(findUniques([1, 2, 3], [3, 4, 5])); 
-console.log(findUniques([], [3, 4, 5]));      
-console.log(findUniques([1, 2, 3], []));       
-console.log(findUniques([], []));             
+console.log(findUniques([], [3, 4, 5])); // [3, 4, 5]
+console.log(findUniques([1, 2, 3], [])); // [1, 2, 3]
+console.log(findUniques([], [])); // []
 
 /*
 Write a function named reverseNumber() which takes a number argument and returns it back 
@@ -569,21 +462,19 @@ reverseNumber(0)     -> 0
 reverseNumber(111)    -> 111 
  */
 
-
 const reverseNumber = (num) => {
-    let digits = [];
-       while (num > 0) {
-           digits.push(num % 10);
-           num = Math.floor(num / 10);
-       }
-       return digits.reduce((acc, digit) => (acc * 10) + digit, 0);
-   };
+  let reversed = 0;
+  while (num !== 0) {
+    reversed = reversed * 10 + (num % 10);
+    num = Math.floor(num / 10);
+  }
+  return reversed;
+};
 console.log(reverseNumber(371));
 console.log(reverseNumber(123));
 console.log(reverseNumber(12));
 console.log(reverseNumber(0));
 console.log(reverseNumber(111));
-
 
 /*
 Write a function named isArmstrong() which takes a number argument and returns true if 
@@ -608,21 +499,17 @@ isArmstrong(153)     -> true
 isArmstrong(1111)     -> false 
 */
 
-const isArmstrong = num => {
-    const strNum = num.toString();
-    const len = strNum.length;
-    let sum = 0;
-    for (let i = 0; i < len; i++) {
-        sum += Math.pow(parseInt(strNum[i]), len);
-    }
-    return sum === num;
+const isArmstrong = (num) => {
+  const digits = num.toString().split("");
+  const power = digits.length;
+  return digits.reduce((acc, digit) => acc + Math.pow(digit, power), 0) === num;
 };
-console.log(isArmstrong(153) );
-console.log(isArmstrong(123) );
-console.log(isArmstrong(1634) );
-console.log(isArmstrong(153) );
-console.log(isArmstrong(1111) );
 
+console.log(isArmstrong(153));
+console.log(isArmstrong(123));
+console.log(isArmstrong(1634));
+console.log(isArmstrong(153));
+console.log(isArmstrong(1111));
 
 /*
 Write a function named isAnagram() which takes two string arguments and returns true if the 
@@ -642,17 +529,22 @@ isAnagram("123", "1234")    -  > false
 */
 
 const isAnagram = (str, str2) => {
-    const sortedChars = (str) => str.toLowerCase().split('').filter(char => char !== ' ').sort().join('');
+  const sortedChars = (str) =>
+    str
+      .toLowerCase()
+      .split("")
+      .filter((char) => char !== " ")
+      .sort()
+      .join("");
 
-    return sortedChars(str) === sortedChars(str2);
+  return sortedChars(str) === sortedChars(str2);
 };
 
-console.log(isAnagram("Apple", "Peach"))
+console.log(isAnagram("Apple", "Peach"));
 console.log(isAnagram("listen", "silent"));
-console.log(isAnagram("astronomer", "moon starer")) 
-console.log(isAnagram("CINEMA", "iceman")) 
-console.log(isAnagram("123", "1234"))
-
+console.log(isAnagram("astronomer", "moon starer"));
+console.log(isAnagram("CINEMA", "iceman"));
+console.log(isAnagram("123", "1234"));
 
 /*
 Write a function named countPalindrome() which takes a string and returns the number 
@@ -668,12 +560,17 @@ countPalindrome("")        -> 0
 countPalindrome("No palindrome here")  -> 0
 */
 
-const countPalindrome = (str) => str.toLowerCase().split(' ').filter((el => el.length > 1 && el === el.split('').reverse().join(''))).length
-console.log(countPalindrome("Mom and Dad"))
-console.log(countPalindrome("See you at noon"))
-console.log(countPalindrome("Kayak races attracts racecar drivers"))
-console.log(countPalindrome(""))
-console.log(countPalindrome("No palindrome here"))
+const countPalindrome = (str) =>
+  str
+    .toLowerCase()
+    .split(" ")
+    .filter((el) => el.length > 1 && el === el.split("").reverse().join(""))
+    .length;
+console.log(countPalindrome("Mom and Dad"));
+console.log(countPalindrome("See you at noon"));
+console.log(countPalindrome("Kayak races attracts racecar drivers"));
+console.log(countPalindrome(""));
+console.log(countPalindrome("No palindrome here"));
 
 /*
 Write a function named canFormString() which takes two string arguments and returns true if 
@@ -690,24 +587,23 @@ canFormString("12", "123")          -> false
  */
 
 const canFormString = (str1, str2) => {
-    const norm = (str) => str.toLowerCase().split('').filter(char => char !== ' ').sort();
+  //normalize("voices rant on") -> "voicesranton"
+  const normalize = (str) => str.toLowerCase().split(" ").join("");
 
-    const [n1, n2] = [norm(str1), norm(str2)];
-
-    let j = 0;
-    for (let i = 0; i < n1.length && j < n2.length; i++) {
-        if (n1[i] === n2[j]) {
-            j++;
-        }
-    }
-    return j === n2.length;
+  return normalize(str2)
+    .split("")
+    .every((char) => {
+      const count1 = normalize(str1).split(char).length - 1;
+      const count2 = normalize(str2).split(char).length - 1;
+      return count1 >= count2;
+    });
 };
 
-console.log(canFormString("Hello", "Hi"))
-console.log(canFormString("programming", "gaming") )
-console.log(canFormString("halogen", "hello"))
-console.log(canFormString("CONVERSATION", "voices rant on"))
-console.log(canFormString("12", "123"))
+console.log(canFormString("Hello", "Hi"));
+console.log(canFormString("programming", "gaming"));
+console.log(canFormString("halogen", "hello"));
+console.log(canFormString("CONVERSATION", "voices rant on"));
+console.log(canFormString("12", "123"));
 
 /*
 Write a function named countOccurrence() which takes two string arguments and returns how 
@@ -722,12 +618,56 @@ countOccurrence("Hello", "l")     -> 2
 countOccurrence("IT conversations", "IT")  -> 2 
  */
 
+const countOccurrence = (str1, str2) => {
+  const normalize = (str) => str.toLowerCase().split(" ").join("");
 
-const countOccurrence = (str1, str2) => [...str2].reduce((min, char) => Math.min(min, [...str1.toLowerCase()].filter(c => c === char.toLowerCase()).length / [...str2.toLowerCase()].filter(c => c === char.toLowerCase()).length), Infinity) | 0;
+  return Math.min(
+    ...normalize(str2)
+      .split("")
+      .map((char) => {
+        const count1 = normalize(str1).split(char).length - 1;
+        const count2 = normalize(str2).split(char).length - 1;
+        return Math.floor(count1 / count2);
+      })
+  );
+};
 
+console.log(countOccurrence("Javascript", "Java"));
+console.log(countOccurrence("Hello", "World"));
+console.log(countOccurrence("Can I can a can", "anc"));
+console.log(countOccurrence("Hello", "l"));
+console.log(countOccurrence("IT conversations", "IT"));
 
-console.log(countOccurrence("Javascript", "Java"))
-console.log(countOccurrence("Hello", "World"))
-console.log(countOccurrence("Can I can a can", "anc"))
-console.log(countOccurrence("Hello", "l"))
-console.log(countOccurrence("IT conversations", "IT"))
+const isPowerOf3 = (num) => {
+  if (num < 1) return false;
+  while (num % 3 === 0) num /= 3;
+  return num === 1;
+};
+
+const isPowerOf3 = (num) => Number.isInteger(Math.log10(num) / Math.log10(3));
+
+console.log(isPowerOf3(9));
+
+const factorial = (num) => {
+  let fact = 1;
+  for (let i = 2; i <= num; i++) {
+    fact *= i;
+  }
+  return fact;
+};
+
+const factorial = (num) => (num <= 1 ? 1 : num * factorial(num - 1));
+console.log(factorial(5));
+console.log(factorial(4));
+console.log(factorial(0));
+console.log(factorial(1));
+
+const findMedian = (arr1, arr2) => {
+  const newArr = arr1.concat(arr2).sort((a, b) => b - a);
+  let med = newArr.length / 2;
+  return newArr.length % 2 === 0
+    ? (newArr[med] + newArr[med - 1]) / 2
+    : newArr[Math.floor(med)];
+};
+console.log(findMedian([1, 3], [2]));
+console.log(findMedian([1, 2], [3, 4]));
